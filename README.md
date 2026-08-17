@@ -26,14 +26,16 @@ Claude Code loads personal skills flat as `~/.claude/skills/<skill>/SKILL.md`, s
 
 ### explainer/ — explanation styles
 
-Four registers for explaining a topic. Invoke with a topic argument, e.g. `/explainer-eli5 how Oban unique jobs work`.
+Registers for explaining a topic. Invoke with a topic argument, e.g. `/explainer-eli5 how Oban unique jobs work`.
 
-| Command | Reader | Style |
+| Command | Reader / goal | Style |
 |---|---|---|
 | `/explainer-ste` | anyone, first pass | ASD-STE100 Simplified Technical English + pedagogy (chunking, progressive disclosure, concrete-first) |
 | `/explainer-eli5` | zero background | analogy-first, plain words, honest simplification |
 | `/explainer-expert` | fluent peer | signal density, tradeoffs, cite ground truth, flag uncertainty |
 | `/explainer-elixir-expert` | Elixir/BEAM peer | expert + OTP idioms + current-repo domain awareness |
+| `/explainer-intuition` | "make it click" | the load-bearing mental model — why it must work this way |
+| `/explainer-socratic` | learning by doing | teaches interactively, one guiding question at a time |
 
 They compose with the caveman compression plugin (if installed): explainer picks content and depth, caveman strips wording. Each SKILL.md documents how it stacks.
 
