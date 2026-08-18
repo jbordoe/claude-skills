@@ -44,3 +44,21 @@ They compose with the caveman compression plugin (if installed): explainer picks
 1. Create `skills/<group>/<name>/SKILL.md` with standard frontmatter (`name`, `description`).
 2. Run `./install.sh`.
 3. `/reload-skills` in Claude Code.
+
+## Using these in claude.ai (web + mobile)
+
+Claude Code CLI, claude.ai (web/mobile), and the Claude API are three separate skill
+systems that **do not sync**. There is no API or CLI to push a local Claude Code skill
+into a claude.ai account — the only route is a manual zip upload.
+
+`package.sh` makes that upload one drag per skill:
+
+```sh
+./package.sh                       # builds dist/<group>-<name>.zip for every skill
+```
+
+Then in claude.ai: **Settings → Skills → upload** each zip. The skill then runs in the
+web app and the mobile app.
+
+Caveat: the uploaded copies are independent. Edit a skill here → re-run `package.sh` and
+re-upload; claude.ai will not update itself. `dist/` is a build artifact and is gitignored.
